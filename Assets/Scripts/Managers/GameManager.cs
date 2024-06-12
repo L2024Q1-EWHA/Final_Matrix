@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 [Serializable]
 // 값을 설정할 때마다 OnStatusChanged 이벤트 호출
@@ -91,6 +92,10 @@ public class PlayerData
     public Status status;
     public Dictionary<string, List<string>> clearMissionList;
     public Dictionary<string, bool[]> mandatoryMission;
+    [JsonProperty][SerializeField] private bool[] vacationMission;
+    [JsonProperty][SerializeField] private bool firstPlay;
+    [JsonProperty][SerializeField] private bool isSemester;
+
 
     /// <summary>
     /// PlayerData 변경 시 호출되는 이벤트
@@ -105,6 +110,7 @@ public class PlayerData
     {
         status = new Status();
         clearMissionList = new Dictionary<string, List<string>>();
+        vacationMission = new bool[4];
         status.OnStatusChanged += () =>
         {
             OnDataChanged?.Invoke(); // Status 변경 시 OnDataChanged 호출
@@ -132,7 +138,75 @@ public class PlayerData
         clearMissionList[key].Add(missionLabel);
         OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
     }
+    /// <summary>
+    /// (방학 미션용) 플레이어가 수행한 미션을 PlayerData의 clearMissionList에 추가
+    /// </summary>
+    /// <param name="grade">'n'학년의 n 값(int)</param>
+    /// <param name="missionLabel">수행한 미션 라벨(string)</param>
+    public void AddClearMission(int grade, string missionLabel)
+    {
+        string key = grade.ToString() + "학년";
+        clearMissionList[key].Add(missionLabel);
+        OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
+    }
 
+    /// <summary>
+    /// 방학 미션 수행 여부 상태를 확인하는 메소드
+    /// </summary>
+    /// <param name="index">인덱스(교환학생, 현장실습, 동아리, 방학 즐기기)</param>
+    /// <returns>state(bool)</returns>
+    public bool VacationMissionState(int index)
+    {
+        return vacationMission[index];
+    }
+    /// <summary>
+    /// 방학 미션 수행 여부 상태 업데이트 메소드
+    /// </summary>
+    /// <param name="index">인덱스(교환학생, 현장실습, 동아리, 방학 즐기기)</param>
+    /// <param name="state">state(bool)</param>
+    public void UpdateVacationMissionState(int index, bool state)
+    {
+        if (state == true)
+        {
+            vacationMission[index] = state;
+            OnDataChanged?.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// 프로퍼티 - 게임 처음 플레이 여부
+    /// </summary>
+    /// <value></value>
+    [JsonIgnore]
+    public bool FirstPlay
+    {
+        get => firstPlay;
+        set
+        {
+            if (value == false)
+            {
+                firstPlay = value;
+                OnDataChanged?.Invoke();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 프로퍼티 - 학기(true), 방학(false) 상태 여부
+    /// </summary>
+    [JsonIgnore]
+    public bool IsSemester
+    {
+        get => isSemester;
+        set
+        {
+            if (isSemester != value)
+            {
+                isSemester = value;
+                OnDataChanged?.Invoke();
+            }
+        }
+    }
 
 }
 
@@ -222,7 +296,14 @@ public class GameManager : MonoBehaviour
     /// <returns>현재 학년의 필수 미션을 모두 클리어했다면 true, 아니면 false 반환</returns>
     public bool IsCompleteAllMandatoryMissions()
     {
+        //develop 환경에서 null reference 처리 위해 추가
+        if (playerData.status.Grade <= 0 && playerData.status.Grade > 4)
+        {
+            DataManager.LoadPlayerData();
+            return false;
+        }
         string key = playerData.status.Grade + "학년";
+        Debug.Log(key);
         if (playerData.mandatoryMission.TryGetValue(key, out bool[] currentMandatoryMissions))
         {
             foreach (bool flag in currentMandatoryMissions)
