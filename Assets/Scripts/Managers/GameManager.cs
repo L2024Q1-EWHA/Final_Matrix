@@ -95,7 +95,8 @@ public class PlayerData
     [JsonProperty][SerializeField] private bool[] vacationMission;
     [JsonProperty][SerializeField] private bool firstPlay;
     [JsonProperty][SerializeField] private bool isSemester;
-
+    // 서브미션 클리어 여부 검색을 위해 추가 240613
+    public bool[] subMission;
 
     /// <summary>
     /// PlayerData 변경 시 호출되는 이벤트
@@ -111,6 +112,7 @@ public class PlayerData
         status = new Status();
         clearMissionList = new Dictionary<string, List<string>>();
         vacationMission = new bool[4];
+        subMission = new bool[8];
         status.OnStatusChanged += () =>
         {
             OnDataChanged?.Invoke(); // Status 변경 시 OnDataChanged 호출
@@ -134,6 +136,10 @@ public class PlayerData
             int missionIndex = missionCode[missionCode.Length - 1] - '0' - 1;
             mandatoryMission[key][missionIndex] = true;
 
+        }
+        else
+        {
+            subMission[missionCode[missionCode.Length - 1] - '0' - 1] = true;
         }
         clearMissionList[key].Add(missionLabel);
         OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
