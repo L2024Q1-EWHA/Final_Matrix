@@ -12,16 +12,6 @@ public static class DataManager
     public static string filePath;
     public static string playerDataFile = "PlayerData.json";
     public static string playerDataInitFile = "PlayerData_Init";
-    public static void Save()
-    {
-
-
-
-    }
-
-
-    public static void Load() { }
-
 
     public static void SavePlayerData()
     {
@@ -39,7 +29,7 @@ public static class DataManager
     public static void LoadPlayerData()
     {
         filePath = Path.Combine(Application.persistentDataPath, playerDataFile);
-
+        Debug.Log(filePath);
         if (File.Exists(filePath))
         {
             string jsonString = File.ReadAllText(filePath);

@@ -36,6 +36,7 @@ public class GradeDropdownControl : MonoBehaviour
         // 현재 학년까지 옵션을 추가
         for (int i = 0; i < currentGrade; i++)
         {
+            if (i >= 4) break;
             string optionText = $"{i + 1}학년";
             options.Add(new TMP_Dropdown.OptionData(optionText));
         }
