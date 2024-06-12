@@ -6,7 +6,7 @@ using TMPro;
 using UnityEditor;
 using System;
 
-public enum StateType
+public enum StatusType
 {
     intelligence,
     attractiveness,
@@ -16,7 +16,7 @@ public enum StateType
 [Serializable]
 public class StatusChangeInfo
 {
-    public StateType stateType;
+    public StatusType statusType;
     public int changeValue;
 }
 
@@ -24,6 +24,7 @@ public class StatusChangeInfo
 public class VacationMission
 {
     public string missionName;
+    public string label;
     [TextArea]
     public string missionInfoTxt;
     [ArrayElementTitle("stateType")]
@@ -53,6 +54,8 @@ public class VacationManager : MonoBehaviour
     [SerializeField] private TMP_Text missionInfo_Text;
     [SerializeField] private GameObject status_section;
     [SerializeField] private Button ok_btn;
+    [SerializeField] private GameObject status_prefab;
+    [SerializeField] private Sprite[] ArrowImages; //up, down
 
 
     [Header("Player Data")]
@@ -61,9 +64,6 @@ public class VacationManager : MonoBehaviour
     [SerializeField] private int missionIndex;
 
     [Header("Mission Info & Data")]
-    //Mission Info Text
-    [TextArea]
-    [SerializeField] private string[] missionInfoTxt;
     [SerializeField] private Color originTxtColor;
     [ArrayElementTitle("missionName")]
     [SerializeField] private VacationMission[] vacationMission;
@@ -85,6 +85,10 @@ public class VacationManager : MonoBehaviour
         clearPanel.SetActive(false);
     }
 
+
+    /// <summary>
+    /// 방학 미션 바튼 상태 업데이트(interactable)
+    /// </summary>
     public void UpdateButtonState()
     {
         originTxtColor = missionBtns.GetComponentInChildren<TMP_Text>().color;
@@ -95,7 +99,10 @@ public class VacationManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 팝업 패널 활성화
+    /// </summary>
+    /// <param name="index">방학 미션 index</param>
     public void ShowPopUpPanel(int index)
     {
         missionIndex = index;
@@ -105,16 +112,43 @@ public class VacationManager : MonoBehaviour
         popUpPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// 미션 성공 패널 활성화 & 스탯 업데이트 & 학년 업데이트 & 미션 상태 업데이트
+    /// </summary>
     public void ShowClearPanel()
     {
-        //팝업 패널, 미니 게임 패널 비활성화
+        //미션 상태 업데이트 (방학 미션 & 수행 미션 추가)
+        if (missionIndex != 3)
+        {
+            GameManager.Instance.playerData.UpdateVacationMissionState(missionIndex, true);
+        }
+
+        GameManager.Instance.playerData.AddClearMission(grade, vacationMission[missionIndex].label);
+
+        //스탯 업데이트 & 스탯 정보 반영
+
+        //1)Status_section 자식 모두 제거(초기화)
+        foreach (Transform child in status_section.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        //2) 스탯 업데이트 & 스탯 정보 반영
+        foreach (StatusChangeInfo statusChangeInfo in vacationMission[missionIndex].statusChangeInfos)
+        {
+            UpdateStatus(statusChangeInfo);
+        }
+
+        //학년 업데이트
+        GameManager.Instance.ChangeGrade(++grade);
+
+
+        //팝업 패널 비활성화
         popUpPanel.SetActive(false);
 
         missionTitle_Text.text = vacationMission[missionIndex].missionName + " 완료";
         missionInfo_Text.text = vacationMission[missionIndex].clearMessage;
 
-        //스탯 정보 반영
-
+        //스탯 정보 반영 (위에서 처리)
 
         //패널 활성화
         clearPanel.SetActive(true);
@@ -122,10 +156,52 @@ public class VacationManager : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// 플레이어 스탯 데이터 업데이트 & 스탯 UI 반영
+    /// </summary>
+    /// <param name="statusChangeInfo"></param>
+    private void UpdateStatus(StatusChangeInfo statusChangeInfo)
+    {
+
+        //UI 반영
+        GameObject status_UI = Instantiate(status_prefab, status_section.transform, false); //프리랩 생성
+        //UI 설정을 위한 변수 선언
+        TMP_Text status_UI_Type = status_UI.transform.GetChild(0).GetComponent<TMP_Text>();
+        TMP_Text status_UI_Value = status_UI.transform.GetChild(1).GetComponent<TMP_Text>();
+        Image status_UI_ArrowImg = status_UI.transform.GetComponentInChildren<Image>();
+
+        //ui 화살표 이미지 변경
+        status_UI_ArrowImg.sprite = statusChangeInfo.changeValue >= 0 ? ArrowImages[0] : ArrowImages[1];
+        //ui value 변경
+        status_UI_Value.text = statusChangeInfo.changeValue >= 0 ? statusChangeInfo.changeValue.ToString("D2") : statusChangeInfo.changeValue.ToString(); //2자리로 표현
+
+        //스탯 데이터 업데이트 & 스탯 type UI 변경
+        switch (statusChangeInfo.statusType)
+        {
+            case StatusType.intelligence:
+                status_UI_Type.text = "지성";
+                GameManager.Instance.IntelligenceStatusUpDown(statusChangeInfo.changeValue);
+                break;
+            case StatusType.attractiveness:
+                status_UI_Type.text = "매력";
+                GameManager.Instance.AttractivenessStatusUpDown(statusChangeInfo.changeValue);
+                break;
+            case StatusType.health:
+                status_UI_Type.text = "건강";
+                GameManager.Instance.HealthStatusUpDown(statusChangeInfo.changeValue);
+                break;
+        }
+    }
+
     public void ShowMiniGamePanel()
     {
 
     }
+
+
+
+
 
 
 

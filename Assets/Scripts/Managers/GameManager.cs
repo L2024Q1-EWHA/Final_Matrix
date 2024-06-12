@@ -138,6 +138,17 @@ public class PlayerData
         clearMissionList[key].Add(missionLabel);
         OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
     }
+    /// <summary>
+    /// (방학 미션용) 플레이어가 수행한 미션을 PlayerData의 clearMissionList에 추가
+    /// </summary>
+    /// <param name="grade">'n'학년의 n 값(int)</param>
+    /// <param name="missionLabel">수행한 미션 라벨(string)</param>
+    public void AddClearMission(int grade, string missionLabel)
+    {
+        string key = grade.ToString() + "학년";
+        clearMissionList[key].Add(missionLabel);
+        OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
+    }
 
     /// <summary>
     /// 방학 미션 수행 여부 상태를 확인하는 메소드
@@ -285,6 +296,7 @@ public class GameManager : MonoBehaviour
     /// <returns>현재 학년의 필수 미션을 모두 클리어했다면 true, 아니면 false 반환</returns>
     public bool IsCompleteAllMandatoryMissions()
     {
+
         string key = playerData.status.Grade + "학년";
         if (playerData.mandatoryMission.TryGetValue(key, out bool[] currentMandatoryMissions))
         {
