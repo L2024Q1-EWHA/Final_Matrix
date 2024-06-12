@@ -39,7 +39,7 @@ public static class DataManager
     public static void LoadPlayerData()
     {
         filePath = Path.Combine(Application.persistentDataPath, playerDataFile);
-
+        Debug.Log(filePath);
         if (File.Exists(filePath))
         {
             string jsonString = File.ReadAllText(filePath);

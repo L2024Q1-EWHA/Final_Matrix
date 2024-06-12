@@ -17,6 +17,7 @@
     "3학년": [false, false],
     "4학년": [false, false]
   },
+  "vacationMission": [false, false, false, false],
   "firstPlay": true,
   "isSemester": true
 }

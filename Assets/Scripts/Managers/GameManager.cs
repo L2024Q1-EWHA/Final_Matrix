@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 [Serializable]
 // 값을 설정할 때마다 OnStatusChanged 이벤트 호출
@@ -91,8 +92,9 @@ public class PlayerData
     public Status status;
     public Dictionary<string, List<string>> clearMissionList;
     public Dictionary<string, bool[]> mandatoryMission;
-    [SerializeField] private bool firstPlay;
-    [SerializeField] private bool isSemester;
+    [JsonProperty][SerializeField] private bool[] vacationMission;
+    [JsonProperty][SerializeField] private bool firstPlay;
+    [JsonProperty][SerializeField] private bool isSemester;
 
 
     /// <summary>
@@ -108,6 +110,7 @@ public class PlayerData
     {
         status = new Status();
         clearMissionList = new Dictionary<string, List<string>>();
+        vacationMission = new bool[4];
         status.OnStatusChanged += () =>
         {
             OnDataChanged?.Invoke(); // Status 변경 시 OnDataChanged 호출
@@ -136,6 +139,34 @@ public class PlayerData
         OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
     }
 
+    /// <summary>
+    /// 방학 미션 수행 여부 상태를 확인하는 메소드
+    /// </summary>
+    /// <param name="index">인덱스(교환학생, 현장실습, 동아리, 방학 즐기기)</param>
+    /// <returns>state(bool)</returns>
+    public bool VacationMissionState(int index)
+    {
+        return vacationMission[index];
+    }
+    /// <summary>
+    /// 방학 미션 수행 여부 상태 업데이트 메소드
+    /// </summary>
+    /// <param name="index">인덱스(교환학생, 현장실습, 동아리, 방학 즐기기)</param>
+    /// <param name="state">state(bool)</param>
+    public void UpdateVacationMissionState(int index, bool state)
+    {
+        if (state == true)
+        {
+            vacationMission[index] = state;
+            OnDataChanged?.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// 프로퍼티 - 게임 처음 플레이 여부
+    /// </summary>
+    /// <value></value>
+    [JsonIgnore]
     public bool FirstPlay
     {
         get => firstPlay;
@@ -150,8 +181,9 @@ public class PlayerData
     }
 
     /// <summary>
-    /// 학기(true), 방학(false) 상태 여부 프로퍼티
+    /// 프로퍼티 - 학기(true), 방학(false) 상태 여부
     /// </summary>
+    [JsonIgnore]
     public bool IsSemester
     {
         get => isSemester;
