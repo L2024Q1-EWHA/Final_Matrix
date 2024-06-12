@@ -72,7 +72,7 @@ public class VacationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DataManager.LoadPlayerData();
+        //DataManager.LoadPlayerData(); //테스트를 위해 임시 추가;
         //학년 반영
         grade = GameManager.Instance.playerData.status.Grade;
         gradeText.text = grade.ToString() + gradeText.text.Substring(1, gradeText.text.Length - 1).Trim();
@@ -196,10 +196,17 @@ public class VacationManager : MonoBehaviour
 
     public void ShowMiniGamePanel()
     {
+        popUpPanel.SetActive(false);
+        clearPanel.SetActive(false);
+        miniGamePanel.SetActive(true);
 
     }
 
-
+    public void EndVacation()
+    {
+        Debug.Log("방학 끝. flag 업데이트");
+        GameManager.Instance.playerData.IsSemester = true;
+    }
 
 
 

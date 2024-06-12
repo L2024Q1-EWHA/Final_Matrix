@@ -296,8 +296,14 @@ public class GameManager : MonoBehaviour
     /// <returns>현재 학년의 필수 미션을 모두 클리어했다면 true, 아니면 false 반환</returns>
     public bool IsCompleteAllMandatoryMissions()
     {
-
+        //develop 환경에서 null reference 처리 위해 추가
+        if (playerData.status.Grade <= 0 && playerData.status.Grade > 4)
+        {
+            DataManager.LoadPlayerData();
+            return false;
+        }
         string key = playerData.status.Grade + "학년";
+        Debug.Log(key);
         if (playerData.mandatoryMission.TryGetValue(key, out bool[] currentMandatoryMissions))
         {
             foreach (bool flag in currentMandatoryMissions)

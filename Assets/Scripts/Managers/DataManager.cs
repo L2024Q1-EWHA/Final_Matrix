@@ -12,16 +12,6 @@ public static class DataManager
     public static string filePath;
     public static string playerDataFile = "PlayerData.json";
     public static string playerDataInitFile = "PlayerData_Init";
-    public static void Save()
-    {
-
-
-
-    }
-
-
-    public static void Load() { }
-
 
     public static void SavePlayerData()
     {
