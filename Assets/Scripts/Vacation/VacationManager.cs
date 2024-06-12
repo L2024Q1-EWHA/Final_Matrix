@@ -3,23 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
+using System;
+
+public enum StateType
+{
+    intelligence,
+    attractiveness,
+    health
+}
+[Serializable]
+public class StatusChangeInfo
+{
+    public StateType stateType;
+    public int changeValue;
+}
+[Serializable]
+public class VacationMission
+{
+    public string missionName;
+    [TextArea]
+    public string missionInfoTxt;
+    [ArrayElementTitle("stateType")]
+    public StatusChangeInfo[] statusChangeInfos;
+}
+
 public class VacationManager : MonoBehaviour
 {
+    [Header("UI")]
     //UI
     [SerializeField] private TMP_Text gradeText;
     [SerializeField] private Transform missionBtns;
     [SerializeField] private GameObject popUpPanel;
+    [SerializeField] private GameObject clearPanel;
+    [SerializeField] private GameObject miniGamePanel;
     [SerializeField] private TMP_Text popUpInfoTxt;
 
+    [Header("Player Data")]
     //PlayerData
     [SerializeField] private int grade;
     [SerializeField] private int missionIndex;
 
-
+    [Header("Mission Info & Data")]
     //Mission Info Text
     [TextArea]
     [SerializeField] private string[] missionInfoTxt;
     [SerializeField] private Color originTxtColor;
+    [ArrayElementTitle("missionName")]
+    [SerializeField] private VacationMission[] vacationMission;
+
+
+    // public StatusChangeInfo[] statusChangeInfos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +85,7 @@ public class VacationManager : MonoBehaviour
     public void PopUpPanel(int index)
     {
         missionIndex = index;
-        popUpInfoTxt.text = missionInfoTxt[index];
+        popUpInfoTxt.text = vacationMission[index].missionInfoTxt;
         popUpPanel.SetActive(true);
     }
 
