@@ -16,5 +16,7 @@
     "2학년": [false, false],
     "3학년": [false, false],
     "4학년": [false, false]
-  }
+  },
+  "firstPlay": true,
+  "isSemester": true
 }

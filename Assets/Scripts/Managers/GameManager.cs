@@ -91,6 +91,9 @@ public class PlayerData
     public Status status;
     public Dictionary<string, List<string>> clearMissionList;
     public Dictionary<string, bool[]> mandatoryMission;
+    [SerializeField] private bool firstPlay;
+    [SerializeField] private bool isSemester;
+
 
     /// <summary>
     /// PlayerData 변경 시 호출되는 이벤트
@@ -133,6 +136,34 @@ public class PlayerData
         OnDataChanged?.Invoke(); // 미션 리스트가 변경될 때 OnDataChanged 호출
     }
 
+    public bool FirstPlay
+    {
+        get => firstPlay;
+        set
+        {
+            if (value == false)
+            {
+                firstPlay = value;
+                OnDataChanged?.Invoke();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 학기(true), 방학(false) 상태 여부 프로퍼티
+    /// </summary>
+    public bool IsSemester
+    {
+        get => isSemester;
+        set
+        {
+            if (isSemester != value)
+            {
+                isSemester = value;
+                OnDataChanged?.Invoke();
+            }
+        }
+    }
 
 }
 
