@@ -43,6 +43,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main2-2
       objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HealthStatusUpDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6919786859837459140, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

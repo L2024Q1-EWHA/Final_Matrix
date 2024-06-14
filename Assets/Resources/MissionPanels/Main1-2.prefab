@@ -20,7 +20,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1857102809878667584, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2213563966176916569, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_text
@@ -29,7 +29,7 @@ PrefabInstance:
     - target: {fileID: 2912140732977670505, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6f83dee4827a21644a1f8594bd5f6b16, type: 3}
+      objectReference: {fileID: 21300000, guid: 855b392cfe262c84492bc922f3d08f5c, type: 3}
     - target: {fileID: 3425399988168979996, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_text
       value: "\uAC74\uAC15     10\n\uC9C0\uC131     5"
@@ -45,6 +45,18 @@ PrefabInstance:
     - target: {fileID: 5705949640638417864, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HealthStatusUpDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6919786859837459140, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_Pivot.x
@@ -132,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857138842816954138, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 8857138842816954138, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

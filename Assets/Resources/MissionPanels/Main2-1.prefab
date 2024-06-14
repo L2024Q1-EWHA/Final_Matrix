@@ -20,7 +20,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1857102809878667584, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2213563966176916569, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_text
@@ -42,6 +42,18 @@ PrefabInstance:
     - target: {fileID: 5705949640638417864, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_Name
       value: Main2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HealthStatusUpDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861293306810570980, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6919786859837459140, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_Pivot.x
