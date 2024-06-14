@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,9 +181,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uB098, \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC 20\uD559\uBC88 \uAE40\uD654\uC5F0.
-    \uC624\uB298\uC740 \uAE30\uB2E4\uB9AC\uACE0 \uAE30\uB2E4\uB9AC\uB358 \uC878\uC5C5\uB0A0!
-    \uD559\uAD50\uB97C 5\uB144\uB3D9\uC548\uC774\uB098 \uB2E4\uB154\uC73C\uB2C8...
-    \uC774\uC81C\uB294 \uC815\uB9D0 \uC878\uC5C5\uD560 \uB54C\uAC00 \uB410\uC5B4!
+    \n\uC624\uB298\uC740 \uAE30\uB2E4\uB9AC\uACE0 \uAE30\uB2E4\uB9AC\uB358 \uC878\uC5C5\uB0A0!
+    \n\uD559\uAD50\uB97C 5\uB144\uB3D9\uC548\uC774\uB098 \uB2E4\uB154\uC73C\uB2C8...
+    \n\uC774\uC81C\uB294 \uC815\uB9D0 \uC878\uC5C5\uD560 \uB54C\uAC00 \uB410\uC5B4!
     \uC2E0\uB09C\uB2E4~"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6da1b98956e7f804cbbfec253b977cf4, type: 2}
@@ -291,7 +291,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 359536977}
   - {fileID: 1023636126}
   - {fileID: 1298818509}
   m_Father: {fileID: 492820153}
@@ -370,20 +369,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359536976}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 651706985}
   - {fileID: 17816093}
-  m_Father: {fileID: 231830126}
+  m_Father: {fileID: 1023636126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -59, y: -306}
-  m_SizeDelta: {x: 720, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -74}
+  m_SizeDelta: {x: 877.8146, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &359536978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,13 +488,13 @@ MonoBehaviour:
   fadeController: {fileID: 359536986}
   scriptText: {fileID: 17816094}
   dialogueLines:
-  - "\uADF8\uB7F0\uB370 \uC774\uAC8C \uBB34\uC2A8 \uC77C\uC774\uC57C! \uCC44\uD50C,
+  - "\uADF8\uB7F0\uB370 \uC774\uAC8C \uBB34\uC2A8 \uC77C\uC774\uC57C!<br>\uCC44\uD50C,
     \uD544\uC218\uAD50\uC591, \uD544\uC218\uC804\uACF5, \uC601\uC5B4 \uC131\uC801,
     \uC878\uC5C5 \uC2DC\uD5D8 \uB4F1\uB4F1 \uC774\uD654\uC5EC\uC790\uB300\uD559\uAD50
     \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC \uD559\uC0DD\uC774\uB77C\uBA74 \uAC16\uCDB0\uC57C\uD560
-    \uC878\uC5C5\uC694\uAC74\uC744 \uB0B4\uAC00 \uBBF8\uCDA9\uC871\uD588\uB2E4\uAD6C?!
-    \uADF8\uB7FC \uB0B4\uAC00 \uC878\uC5C5\uC744 \uBABB\uD55C\uB2E4\uAD6C?!! "
-  - "\uC81C\uBC1C...1\uD559\uB144\uC73C\uB85C \uB3CC\uC544\uAC08 \uC218 \uC788\uB2E4\uBA74...\uBABB\uB4E4\uC740
+    \uC878\uC5C5\uC694\uAC74\uC744 \uB0B4\uAC00 \uBBF8\uCDA9\uC871\uD588\uB2E4\uAD6C?!<br>\uADF8\uB7FC
+    \uB0B4\uAC00 \uC878\uC5C5\uC744 \uBABB\uD55C\uB2E4\uAD6C?!! "
+  - "\uC81C\uBC1C... <br>1\uD559\uB144\uC73C\uB85C \uB3CC\uC544\uAC08 \uC218 \uC788\uB2E4\uBA74...<br>\uBABB\uB4E4\uC740
     \uAC15\uC758\uB3C4 \uB4E3\uACE0, \uC2DC\uD5D8\uB3C4 \uCE58\uACE0, \uC878\uC5C5
     \uC694\uAC74\uC744 \uB2E4 \uCC44\uC6B0\uBA74\uC11C \uC54C\uCC28\uAC8C \uD559\uAD50
     \uC0DD\uD65C\uC744 \uC990\uAE38\uD150\uB370...! "
@@ -619,12 +618,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 2340}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -906,11 +905,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2029008548}
+  - {fileID: 359536977}
   m_Father: {fileID: 231830126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -961}
+  m_AnchoredPosition: {x: 231, y: -961}
   m_SizeDelta: {x: 274.4, y: 274.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023636127

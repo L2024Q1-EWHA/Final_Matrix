@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CoverScene.unity
+    guid: 9cf0a78d5d618834cb39dc7cd94e1c1a
+  - enabled: 1
     path: Assets/Scenes/IntroScene.unity
     guid: 07a881a2bda64014fb7260bcf5aa467e
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 6c97fc3c1904b5b488d585bd97661f94
-  - enabled: 1
-    path: Assets/Scenes/CoverScene.unity
-    guid: 9cf0a78d5d618834cb39dc7cd94e1c1a
   - enabled: 1
     path: Assets/Scenes/MissionList_SemesterScene.unity
     guid: b95757ba5ad5e3542876c46b0203f251
@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProfileScene.unity
     guid: 3339bae9e5a354849852813509675329
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/AR_TestScene.unity
+    guid: 4ccc71f76b27d6548a832ca0adbe475a
+  - enabled: 1
+    path: Assets/Scenes/AR_SubScene.unity
+    guid: 33588d1b6792c77469a4d9e6e2bcf415
+  - enabled: 1
+    path: Assets/Scenes/AR_MainScene.unity
+    guid: 074ed10e6472ea74fba25d9fe56c1e65
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 261696e86432f40d898c74dcdafa3093, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 92296535c2bfa48989b7ee018f99f9ff, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6cb34414690fa479db7559a22cad118f, type: 2}
