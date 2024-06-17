@@ -2,20 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EndSemester : MonoBehaviour
 {
     private Button endButton;
+    private TMP_Text buttonText;
 
     private void Start()
     {
         endButton = GetComponent<Button>();
+        buttonText = GetComponentInChildren<TMP_Text>();
         //이벤트 리스터 연결
 
-
-
-
-
+        //학년에 따른 text 설정
+        if (GameManager.Instance.playerData.status.Grade == 4)
+        {
+            buttonText.text = "졸업하기";
+        }
+        else
+        {
+            buttonText.text = "종강하기";
+        }
 
         //버튼 interactable 설정
         SetInteractable();
