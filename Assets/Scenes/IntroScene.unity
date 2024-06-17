@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.18018535, g: 0.22559482, b: 0.30677685, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,11 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB098, \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC 20\uD559\uBC88 \uAE40\uD654\uC5F0.
-    \n\uC624\uB298\uC740 \uAE30\uB2E4\uB9AC\uACE0 \uAE30\uB2E4\uB9AC\uB358 \uC878\uC5C5\uB0A0!
-    \n\uD559\uAD50\uB97C 5\uB144\uB3D9\uC548\uC774\uB098 \uB2E4\uB154\uC73C\uB2C8...
-    \n\uC774\uC81C\uB294 \uC815\uB9D0 \uC878\uC5C5\uD560 \uB54C\uAC00 \uB410\uC5B4!
-    \uC2E0\uB09C\uB2E4~"
+  m_text: "\uB300\uC0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6da1b98956e7f804cbbfec253b977cf4, type: 2}
   m_sharedMaterial: {fileID: -2055731747450391665, guid: 6da1b98956e7f804cbbfec253b977cf4, type: 2}
@@ -488,18 +484,26 @@ MonoBehaviour:
   fadeController: {fileID: 359536986}
   scriptText: {fileID: 17816094}
   dialogueLines:
-  - "\uADF8\uB7F0\uB370 \uC774\uAC8C \uBB34\uC2A8 \uC77C\uC774\uC57C!<br>\uCC44\uD50C,
+  - "\uB098, \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC 20\uD559\uBC88 \uC774\uD654\uC11D.\n\uC624\uB298\uC740
+    \uAE30\uB2E4\uB9AC\uACE0 \uAE30\uB2E4\uB9AC\uB358 \uC878\uC5C5\uB0A0!\n\uD559\uAD50\uB97C
+    5\uB144\uB3D9\uC548\uC774\uB098 \uB2E4\uB154\uC73C\uB2C8...\n\uC774\uC81C\uB294
+    \uC815\uB9D0 \uC878\uC5C5\uD560 \uB54C\uAC00 \uB410\uC5B4! \uC2E0\uB09C\uB2E4~"
+  - "\uADF8\uB7F0\uB370 \uC774\uAC8C \uBB34\uC2A8 \uC77C\uC774\uC57C!\n\uCC44\uD50C,
     \uD544\uC218\uAD50\uC591, \uD544\uC218\uC804\uACF5, \uC601\uC5B4 \uC131\uC801,
-    \uC878\uC5C5 \uC2DC\uD5D8 \uB4F1\uB4F1 \uC774\uD654\uC5EC\uC790\uB300\uD559\uAD50
+    \uC878\uC5C5 \uC2DC\uD5D8 \uB4F1\uB4F1...\n\uC774\uD654\uC5EC\uC790\uB300\uD559\uAD50
     \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC \uD559\uC0DD\uC774\uB77C\uBA74 \uAC16\uCDB0\uC57C\uD560
-    \uC878\uC5C5\uC694\uAC74\uC744 \uB0B4\uAC00 \uBBF8\uCDA9\uC871\uD588\uB2E4\uAD6C?!<br>\uADF8\uB7FC
+    '\uC878\uC5C5\uC694\uAC74'\uC744 \uB0B4\uAC00 \uBBF8\uCDA9\uC871\uD588\uB2E4\uAD6C?!\n\uADF8\uB7FC
     \uB0B4\uAC00 \uC878\uC5C5\uC744 \uBABB\uD55C\uB2E4\uAD6C?!! "
-  - "\uC81C\uBC1C... <br>1\uD559\uB144\uC73C\uB85C \uB3CC\uC544\uAC08 \uC218 \uC788\uB2E4\uBA74...<br>\uBABB\uB4E4\uC740
+  - "\uC81C\uBC1C... \n1\uD559\uB144\uC73C\uB85C \uB3CC\uC544\uAC08 \uC218 \uC788\uB2E4\uBA74...\n\uBABB\uB4E4\uC740
     \uAC15\uC758\uB3C4 \uB4E3\uACE0, \uC2DC\uD5D8\uB3C4 \uCE58\uACE0, \uC878\uC5C5
     \uC694\uAC74\uC744 \uB2E4 \uCC44\uC6B0\uBA74\uC11C \uC54C\uCC28\uAC8C \uD559\uAD50
     \uC0DD\uD65C\uC744 \uC990\uAE38\uD150\uB370...! "
   - "\uC5B4, \uADF8\uB7F0\uB370 \uC800 \uBE5B\uC740 \uBB50\uC9C0?"
   currentLine: 0
+  isTyping: 0
+  isDoneTyping: 0
+  stopTyping: 0
+  waitTime: 0.05
 --- !u!114 &359536985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAE40\uD654\uC5F0\n "
+  m_text: "\uC774\uD654\uC11D\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6da1b98956e7f804cbbfec253b977cf4, type: 2}
   m_sharedMaterial: {fileID: -2055731747450391665, guid: 6da1b98956e7f804cbbfec253b977cf4, type: 2}

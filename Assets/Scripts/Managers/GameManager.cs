@@ -95,6 +95,7 @@ public class PlayerData
     [JsonProperty][SerializeField] private bool[] vacationMission;
     [JsonProperty][SerializeField] private bool firstPlay;
     [JsonProperty][SerializeField] private bool isSemester;
+    [JsonProperty][SerializeField] private bool isEnd;
     // 서브미션 클리어 여부 검색을 위해 추가 240613
     public bool[] subMission;
 
@@ -209,6 +210,23 @@ public class PlayerData
             if (isSemester != value)
             {
                 isSemester = value;
+                OnDataChanged?.Invoke();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 프로퍼티 - 엔딩 도달 여부
+    /// </summary>
+    [JsonIgnore]
+    public bool IsEnd
+    {
+        get => isEnd;
+        set
+        {
+            if (isEnd != value)
+            {
+                isEnd = value;
                 OnDataChanged?.Invoke();
             }
         }

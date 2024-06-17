@@ -19,5 +19,6 @@
   },
   "vacationMission": [false, false, false, false],
   "firstPlay": true,
-  "isSemester": true
+  "isSemester": true,
+  "isEnd": false
 }

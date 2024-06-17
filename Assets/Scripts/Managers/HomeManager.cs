@@ -49,9 +49,10 @@ public class HomeManager : MonoBehaviour
     {
         if (GameManager.Instance.playerData.status.Grade < 4)
         {
+            GameManager.Instance.playerData.IsSemester = false;
             loadscript.LoadSceneBtnOnClick("MissionList_VacationScene");
         }
-        else 
+        else
         {
             if ((GameManager.Instance.playerData.status.Intelligence >= 90)
                 && (GameManager.Instance.playerData.status.Health >= 70) &&

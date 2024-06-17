@@ -28,19 +28,37 @@ public class LoadSceneBtn : MonoBehaviour
     /// </summary>
     public void LoadPlayScene()
     {
-        if (GameManager.Instance.playerData.FirstPlay == true)
+        GameManager gameManager = GameManager.Instance;
+        if (gameManager.playerData.FirstPlay == true)
         {
-            GameManager.Instance.GetComponent<LoadScene>().SceneChange("IntroScene");
+            Debug.Log("첫 시작. 인트로 씬으로 이동");
+            gameManager.GetComponent<LoadScene>().SceneChange("IntroScene");
         }
         else
         {
-            if (GameManager.Instance.playerData.IsSemester == true)
+            if (gameManager.playerData.IsEnd == true)
             {
-                GameManager.Instance.GetComponent<LoadScene>().SceneChange("HomeScene");
+                Debug.Log("엔딩 씬으로 이동");
+                if ((gameManager.playerData.status.Intelligence >= 90)
+                && (gameManager.playerData.status.Health >= 70) &&
+                (gameManager.playerData.status.Attractiveness >= 70))
+                {
+                    gameManager.GetComponent<LoadScene>().SceneChange("Ending_GoodScene");
+                }
+                else
+                {
+                    gameManager.GetComponent<LoadScene>().SceneChange("Ending_NormalScene");
+                }
+            }
+            else if (gameManager.playerData.IsSemester == true)
+            {
+                Debug.Log("학기 중. 홈 씬으로 이동");
+                gameManager.GetComponent<LoadScene>().SceneChange("HomeScene");
             }
             else
             {
-                GameManager.Instance.GetComponent<LoadScene>().SceneChange("MissionList_VacationScene");
+                Debug.Log("방학 중. 방학 씬으로 이동");
+                gameManager.GetComponent<LoadScene>().SceneChange("MissionList_VacationScene");
             }
         }
     }

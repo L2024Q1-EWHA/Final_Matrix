@@ -1,26 +1,85 @@
 using UnityEngine;
-using UnityEngine.UI; // UI ÄÄÆ÷³ÍÆ® »ç¿ë
-using TMPro; // TextMeshPro »ç¿ë
-using UnityEngine.SceneManagement; // ¾À °ü¸®
+using UnityEngine.UI; // UI ì»´í¬ë„ŒíŠ¸ ì‚¬ìš©
+using TMPro; // TextMeshPro ì‚¬ìš©
+using UnityEngine.SceneManagement; // ì”¬ ê´€ë¦¬
+
+using System.Collections; //coroutine ìœ„í•´ ì¶”ê°€
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Dialogue")]
     public FadeController fadeController;
-    public TMP_Text scriptText; // ´ë»ç¸¦ Ç¥½ÃÇÏ±â À§ÇÑ º¯¼ö
+    public TMP_Text scriptText; // ëŒ€ì‚¬ë¥¼ í‘œì‹œí•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+    [TextArea]
+    public string[] dialogueLines; // ëŒ€ì‚¬ë¥¼ ì €ì¥í•  ë°°ì—´
+    public int currentLine = 0; // í˜„ì¬ ëŒ€ì‚¬ì˜ ìœ„ì¹˜
 
-    public string[] dialogueLines; // ´ë»ç¸¦ ÀúÀåÇÒ ¹è¿­
-    public int currentLine = 0; // ÇöÀç ´ë»çÀÇ À§Ä¡
+
+    [Header("Typing Effect")]
+    private bool isTyping = false;
+    private bool isDoneTyping = true;
+    private bool stopTyping = false;
+    private float waitTime = 0.03f;
+
+
+    private void Start()
+    {
+        isTyping = false;
+        isDoneTyping = true;
+        stopTyping = false;
+
+        DisplayNextLine();
+    }
 
     public void DisplayNextLine()
     {
-        if (currentLine < dialogueLines.Length)
+        //íƒ€ì´í•‘ íš¨ê³¼ ì¶”ê°€(0617)
+        if (!isDoneTyping)
         {
-            scriptText.text = dialogueLines[currentLine];
-            currentLine++;
+            stopTyping = true;
         }
-        else // ¸ğµç ´ë»ç°¡ Ãâ·ÂµÈ °æ¿ì
+        else
         {
-            fadeController.FadeOutAndLoadScene("HomeScene"); // ´ÙÀ½ ¾ÀÀ¸·Î ÀüÈ¯
+            if (currentLine < dialogueLines.Length)
+            {
+                //scriptText.text = dialogueLines[currentLine]; //íƒ€ì´í•‘ íš¨ê³¼ë¥¼ ìœ„í•´ ì£¼ì„ ì²˜ë¦¬(0617)
+                StartCoroutine(TypingText(dialogueLines[currentLine]));
+                currentLine++;
+            }
+            else // ëª¨ë“  ëŒ€ì‚¬ê°€ ì¶œë ¥ëœ ê²½ìš°
+            {
+                Debug.Log("ì¸íŠ¸ë¡œ ì™„ë£Œ. ì²« ì‹œì‘ flag ë³€ê²½");
+                GameManager.Instance.playerData.FirstPlay = false;
+                fadeController.FadeOutAndLoadScene("HomeScene"); // ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì „í™˜
+            }
         }
+
+
     }
+
+
+
+    public IEnumerator TypingText(string text)
+    {
+        if (isTyping) yield break; //ì¤‘ë³µ í˜¸ì¶œ ë°©ì§€
+
+        isTyping = true;
+        isDoneTyping = false;
+        scriptText.text = ""; //ì´ˆê¸°í™”
+        for (int i = 0; i < text.Length && !stopTyping; i++)
+        {
+            scriptText.text += text[i];
+            //ì ì‹œ ëŒ€ê¸°
+            yield return new WaitForSeconds(waitTime);
+        }
+        if (!scriptText.text.Equals(text))
+        {
+            scriptText.text = text;
+        }
+
+        stopTyping = false;
+        isDoneTyping = true;
+        isTyping = false;
+    }
+
 }
