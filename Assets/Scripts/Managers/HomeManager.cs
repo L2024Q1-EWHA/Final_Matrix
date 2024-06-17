@@ -7,6 +7,7 @@ public class HomeManager : MonoBehaviour
 {
     public TMP_Text gradetext;
     public GameObject popup;
+    public TMP_Text popupMsg;
     public LoadSceneBtn loadscript;
     private int grade;
 
@@ -37,12 +38,15 @@ public class HomeManager : MonoBehaviour
         }
     }
 
-    public void PopUp()
+    public void PopUp() //4학년일 때 팝업 메시지 수정
     {
-        if (GameManager.Instance.IsCompleteAllMandatoryMissions())
-        {
-            popup.gameObject.SetActive(true);
-        }
+        if (GameManager.Instance.playerData.status.Grade == 4)
+            popupMsg.text = "졸업 가능 여부를 확인해볼까?";
+        popup.gameObject.SetActive(true);
+        // if (GameManager.Instance.IsCompleteAllMandatoryMissions())
+        // {
+        //     popup.gameObject.SetActive(true);
+        // }
     }
 
     public void EndSemester()
@@ -54,6 +58,7 @@ public class HomeManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.playerData.IsEnd = true;
             if ((GameManager.Instance.playerData.status.Intelligence >= 90)
                 && (GameManager.Instance.playerData.status.Health >= 70) &&
                 (GameManager.Instance.playerData.status.Attractiveness >= 70))
