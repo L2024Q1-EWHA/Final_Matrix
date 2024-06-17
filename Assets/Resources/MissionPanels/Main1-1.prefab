@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 268924260203099290, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_text
-      value: ECC
+      value: "\uD559\uAD00 205\uD638"
       objectReference: {fileID: 0}
     - target: {fileID: 1857102809878667584, guid: 6be2477ca6cd01d4382249b8748d15b1, type: 3}
       propertyPath: m_IsActive

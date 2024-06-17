@@ -3336,7 +3336,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 1461.67}
+  m_SizeDelta: {x: -35, y: 1461.67}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1351541594
 MonoBehaviour:
@@ -6470,7 +6470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7432173792240163784, guid: ca7529c2fb9b51a4cbc4dda0acb00c73, type: 3}
       propertyPath: m_text
-      value: "[ECC] \uB300\uD559\uC601\uC5B4 \uC218\uAC15"
+      value: "[\uD559\uAD00] \uB300\uD559\uC601\uC5B4 \uC218\uAC15"
       objectReference: {fileID: 0}
     - target: {fileID: 7571228378433264501, guid: ca7529c2fb9b51a4cbc4dda0acb00c73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
