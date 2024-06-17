@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18018535, g: 0.22559482, b: 0.30677685, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1732,6 +1732,10 @@ PrefabInstance:
     - target: {fileID: 2899115572571170811, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
       propertyPath: m_Name
       value: ClearMission (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3768,8 +3772,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 420, y: 130}
-  m_Spacing: {x: 15, y: 15}
+  m_CellSize: {x: 430, y: 155}
+  m_Spacing: {x: 10, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &1269936038
@@ -4501,6 +4505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearMission (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4813,6 +4821,10 @@ PrefabInstance:
     - target: {fileID: 2899115572571170811, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
       propertyPath: m_Name
       value: ClearMission (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6068,6 +6080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearMission (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6512,9 +6528,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1807333236371801644, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_text
+      value: "\uC18C\uD504\uD2B8\uC6E8\uC5B4\uC735\uD569\uCC3D\uC758\uC124\uACC4"
+      objectReference: {fileID: 0}
     - target: {fileID: 2899115572571170811, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
       propertyPath: m_Name
       value: ClearMission
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 265.5601
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983036218325254828, guid: 7f7a0f14026534d82a5cec6db65c1951, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 160.78001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

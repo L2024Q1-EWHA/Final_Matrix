@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class MissionMenu : MonoBehaviour
 {
-    [SerializeField] int thisMissionGrade; // ¼­ºê ¹Ì¼ÇÀº 0
+    [SerializeField] int thisMissionGrade; // ì„œë¸Œ ë¯¸ì…˜ì€ 0
     [SerializeField] GameObject Buttons;
     [SerializeField] GameObject CheckImage;
 
     void Start()
     {
-        // ¸ŞÀÎ ¹Ì¼ÇÀÇ °æ¿ì ÇØ´ç ÇĞ³âÀÌ ¾Æ´Ï¸é ºñÈ°¼ºÈ­
+        // ë©”ì¸ ë¯¸ì…˜ì˜ ê²½ìš° í•´ë‹¹ í•™ë…„ì´ ì•„ë‹ˆë©´ ë¹„í™œì„±í™”
         if (this.CompareTag("MainMission"))
         {
-            if(thisMissionGrade != GameManager.Instance.playerData.status.Grade)
+            if (thisMissionGrade != GameManager.Instance.playerData.status.Grade)
             {
                 gameObject.SetActive(false);
             }
-            else // Å¬¸®¾îÇÑ ¹Ì¼Ç ¹İ¿µ
+            else // í´ë¦¬ì–´í•œ ë¯¸ì…˜ ë°˜ì˜
             {
                 if (SearchMainClear(gameObject.name))
                 {
@@ -26,7 +26,7 @@ public class MissionMenu : MonoBehaviour
                 }
             }
         }
-        // ¼­ºê ¹Ì¼ÇÀÇ °æ¿ì Å¬¸®¾îÇÑ ¹Ì¼ÇÀº Å¬¸®¾î Ç¥½Ã + ¸ÇµÚ·Î º¸³»±â
+        // ì„œë¸Œ ë¯¸ì…˜ì˜ ê²½ìš° í´ë¦¬ì–´í•œ ë¯¸ì…˜ì€ í´ë¦¬ì–´ í‘œì‹œ + ë§¨ë’¤ë¡œ ë³´ë‚´ê¸°
         else if (this.CompareTag("SubMission"))
         {
             if (SearchSubClear(gameObject.name))
@@ -35,7 +35,7 @@ public class MissionMenu : MonoBehaviour
                 transform.SetAsLastSibling();
             }
         }
-        else Debug.LogError("¹Ì¼Ç ÅÂ±× ¼³Á¤ ¾ÈµÊ");
+        else Debug.LogError("ë¯¸ì…˜ íƒœê·¸ ì„¤ì • ì•ˆë¨");
     }
 
     bool SearchSubClear(string thisName)
@@ -49,8 +49,9 @@ public class MissionMenu : MonoBehaviour
 
     bool SearchMainClear(string thisName)
     {
-        string key = GameManager.Instance.playerData.status.Grade.ToString() + "ÇĞ³â";
+        string key = GameManager.Instance.playerData.status.Grade.ToString() + "í•™ë…„";
         int missionIndex = thisName[thisName.Length - 1] - '0' - 1;
+
         if (GameManager.Instance.playerData.mandatoryMission[key][missionIndex])
         {
             return true;

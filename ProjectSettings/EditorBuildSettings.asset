@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR_MainScene.unity
     guid: 074ed10e6472ea74fba25d9fe56c1e65
+  - enabled: 1
+    path: Assets/Scenes/Ending_GoodScene.unity
+    guid: 3726db2c4dce3824097e898cb3f0c07c
+  - enabled: 1
+    path: Assets/Scenes/Ending_NormalScene.unity
+    guid: abd7a14a6071e6747ab8eae9ab9c3543
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 261696e86432f40d898c74dcdafa3093, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 92296535c2bfa48989b7ee018f99f9ff, type: 2}

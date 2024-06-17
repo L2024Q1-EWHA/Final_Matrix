@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 5983036218325254828}
   - component: {fileID: 3653340454634790676}
   - component: {fileID: 1807333236371801644}
+  - component: {fileID: 3547553861852290710}
   m_Layer: 5
   m_Name: "\uCC44\uD50C"
   m_TagString: Untagged
@@ -186,8 +187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 256.43982, y: 11.2}
-  m_SizeDelta: {x: 456.88, y: 78.4}
+  m_AnchoredPosition: {x: 170.88458, y: 11.2}
+  m_SizeDelta: {x: 285.7692, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3653340454634790676
 CanvasRenderer:
@@ -244,8 +245,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -286,3 +287,17 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3547553861852290710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5514980596435596750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
