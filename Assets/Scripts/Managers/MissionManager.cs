@@ -29,6 +29,8 @@ public class MissionManager : MonoBehaviour
 
     private Mission[] missions;
 
+    private bool isFound = false; //패널 중복 생성 방지 (0618)
+
     void Start()
     {
         Init();
@@ -54,6 +56,9 @@ public class MissionManager : MonoBehaviour
 
     public void OnTargetFound(string missionCode)
     {
+        if (isFound) return;
+
+
         if (missionCode == nowMission.code)
         {
             // 아이콘 회전
@@ -68,6 +73,7 @@ public class MissionManager : MonoBehaviour
 
                 panelInstance.transform.localPosition = Vector3.zero;
                 panelInstance.transform.localScale = Vector3.one;
+                isFound = true; //패널 중복 생성 방지 (0618)
             }
             else
             {
